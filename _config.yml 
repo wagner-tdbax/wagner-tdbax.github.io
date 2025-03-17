@@ -1,0 +1,3 @@
+markdown: redcarpet
+redcarpet:
+    extensions: ["autolink", "fenced_code_blocks", "lax_spacing", "no_intra_emphasis", "space_after_headers", "strikethrough", "superscript", "tables"]
