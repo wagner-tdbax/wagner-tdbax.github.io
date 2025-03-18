@@ -5,5 +5,4 @@ title: top a page
 
 # wagner-tdbax.github.io
 
-* hoge
-* huga
+* [README](/README.md)
