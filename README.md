@@ -1,6 +1,3 @@
----
-layout: default
-title: top a page
----
+# git-wiki
 
-# wagner-tdbax.github.io
+[Demo and documentation](https://github.com/Drassil/git-wiki) for [git-wiki-theme](https://github.com/Drassil/git-wiki-theme)
