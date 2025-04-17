@@ -1,116 +1,50 @@
-# The Minimal theme
+# git-wiki
 
-[![.github/workflows/ci.yaml](https://github.com/pages-themes/minimal/actions/workflows/ci.yaml/badge.svg)](https://github.com/pages-themes/minimal/actions/workflows/ci.yaml) [![Gem Version](https://badge.fury.io/rb/jekyll-theme-minimal.svg)](https://badge.fury.io/rb/jekyll-theme-minimal)
+Git-wiki is a **modular and full featured wiki** powered by Git, [GitHub](https://pages.github.com/)/[Gitlab](https://about.gitlab.com/product/pages/) Pages and pull requests!
 
-*Minimal is a Jekyll theme for GitHub Pages. You can [preview the theme to see what it looks like](http://pages-themes.github.io/minimal), or even [use it today](#usage).*
+The git-wiki project is composed by 3 different repository:
 
-![Thumbnail of Minimal](thumbnail.png)
+- [git-wiki-theme](https://github.com/Drassil/git-wiki-theme): This is the repository of the theme that implements the wiki functionalities. You would have not fork it unless you need to send a Pull Request or create your wiki project from scratch.
 
-## Usage
+- [git-wiki-skeleton](https://github.com/Drassil/git-wiki-skeleton): This is the repo that you should fork or use as a template. It uses the [jekyll remote theme](https://github.com/benbalter/jekyll-remote-theme) functionality that allows you to create your own wiki based on git-wiki-theme. By using the remote functionality you can automatically keep your wiki always updated with latest features from the **git-wiki-theme**, but you can also fully customize it. 
 
-To use the Minimal theme:
+- [git-wiki](https://github.com/Drassil/git-wiki): This is the documentation repository and website of the **git-wiki-theme** project. You would have not fork it unless you want to contribute to the git-wiki project documentation.
 
-1. Add the following to your site's `_config.yml`:
+## Getting started
 
-    ```yml
-    remote_theme: pages-themes/minimal@v0.2.0
-    plugins:
-    - jekyll-remote-theme # add this line to the plugins list if you already have one
-    ```
+The easier and faster way to use git-wiki is the "skeleton" method.
 
-2. Optionally, if you'd like to preview your site on your computer, add the following to your site's `Gemfile`:
+**You don't need to install anything locally!**
 
-    ```ruby
-    gem "github-pages", group: :jekyll_plugins
-    ```
+1. Simply fork/clone [skeleton repo](https://github.com/Drassil/git-wiki-skeleton) or click on the "Use this template" button to create your copy of the skeleton project.
 
-## Customizing
+2. Edit _config.yml and other pages as you need and then deploy it on GitHub/Gitlab Pages.
 
-### Configuration variables
+**Done**! Now wait that your page will be published and you're ready **_to wiki_**!
 
-Minimal will respect the following variables, if set in your site's `_config.yml`:
+## Features 
 
-```yml
-title: [The title of your site]
-description: [A short description of your site's purpose]
-```
+* Improvements in the **cooperative** aspect: forks, pull requests and roles.
+* You can **customize your wiki** as you want with stylesheets and even changing the layout (see customization section below).
+* **No databases!** Only static files that can be downloaded in a few seconds.
+* **Blazing fast** and free thankfully to GitHub/Gitlab Pages and Jekyll Server Side Generation process!
+* **Markdown and HTML** mixed together!
+* **Multiple free search engines!** on a static site!
+* **History, revision comparison** and everything you need from a wiki platform.
+* You can **edit your pages** with the standard git editor, prose.io (integrated) or any kind of editor you prefer.
+* Non-existent wiki page links are "[red](red.md)", you can **click on them to automatically create a new page**!
+* [External links](http://example.com) get the right icon automatically.
+* **Component system with hooks** that allows you to completely customize your wiki UI (see customization section below).
+* Some **nice internal themes** to change your entire wiki UI with 1 simple configuration (see customization section below).
+* Integrated **Blogging** feature thanks to Jekyll!
+* Automatically generated **TOC**!
+* You can download the entire wiki for **offline** usage and even navigate directly using a Markdown reader!
 
-Additionally, you may choose to set the following optional variables:
 
-```yml
-show_downloads: ["true" or "false" (unquoted) to indicate whether to provide a download URL]
-google_analytics: [Your Google Analytics tracking ID]
-```
+You can use it with the Jekyll ["remote_theme"](https://github.com/benbalter/jekyll-remote-theme) feature or fork/copy the master branch and start your wiki in just 1 minute.
 
-### Stylesheet
 
-If you'd like to add your own custom styles:
 
-1. Create a file called `/assets/css/style.scss` in your site
-2. Add the following content to the top of the file, exactly as shown:
-    ```scss
-    ---
-    ---
+Instructions and full documentation: [http://drassil.github.io/git-wiki](http://drassil.github.io/git-wiki)
 
-    @import "{{ site.theme }}";
-    ```
-3. Add any custom CSS (or Sass, including imports) you'd like immediately after the `@import` line
 
-*Note: If you'd like to change the theme's Sass variables, you must set new values before the `@import` line in your stylesheet.*
-
-### Layouts
-
-If you'd like to change the theme's HTML layout:
-
-1. For some changes such as a custom `favicon`, you can add custom files in your local `_includes` folder. The files [provided with the theme](https://github.com/pages-themes/minimal/tree/master/_includes) provide a starting point and are included by the [original layout template](https://github.com/pages-themes/minimal/blob/master/_layouts/default.html).
-2. For more extensive changes, [copy the original template](https://github.com/pages-themes/minimal/blob/master/_layouts/default.html) from the theme's repository<br />(*Pro-tip: click "raw" to make copying easier*)
-3. Create a file called `/_layouts/default.html` in your site
-4. Paste the default layout content copied in the first step
-5. Customize the layout as you'd like
-
-### Customizing Google Analytics code
-
-Google has released several iterations to their Google Analytics code over the years since this theme was first created. If you would like to take advantage of the latest code, paste it into `_includes/head-custom-google-analytics.html` in your Jekyll site.
-
-### Overriding GitHub-generated URLs
-
-Templates often rely on URLs supplied by GitHub such as links to your repository or links to download your project. If you'd like to override one or more default URLs:
-
-1. Look at [the template source](https://github.com/pages-themes/minimal/blob/master/_layouts/default.html) to determine the name of the variable. It will be in the form of `{{ site.github.zip_url }}`.
-2. Specify the URL that you'd like the template to use in your site's `_config.yml`. For example, if the variable was `site.github.url`, you'd add the following:
-    ```yml
-    github:
-      zip_url: http://example.com/download.zip
-      another_url: another value
-    ```
-3. When your site is built, Jekyll will use the URL you specified, rather than the default one provided by GitHub.
-
-*Note: You must remove the `site.` prefix, and each variable name (after the `github.`) should be indent with two space below `github:`.*
-
-For more information, see [the Jekyll variables documentation](https://jekyllrb.com/docs/variables/).
-
-## Roadmap
-
-See the [open issues](https://github.com/pages-themes/minimal/issues) for a list of proposed features (and known issues).
-
-## Project philosophy
-
-The Minimal theme is intended to make it quick and easy for GitHub Pages users to create their first (or 100th) website. The theme should meet the vast majority of users' needs out of the box, erring on the side of simplicity rather than flexibility, and provide users the opportunity to opt-in to additional complexity if they have specific needs or wish to further customize their experience (such as adding custom CSS or modifying the default layout). It should also look great, but that goes without saying.
-
-## Contributing
-
-Interested in contributing to Minimal? We'd love your help. Minimal is an open source project, built one contribution at a time by users like you. See [the CONTRIBUTING file](docs/CONTRIBUTING.md) for instructions on how to contribute.
-
-### Previewing the theme locally
-
-If you'd like to preview the theme locally (for example, in the process of proposing a change):
-
-1. Clone down the theme's repository (`git clone https://github.com/pages-themes/minimal`)
-2. `cd` into the theme's directory
-3. Run `script/bootstrap` to install the necessary dependencies
-4. Run `bundle exec jekyll serve` to start the preview server
-5. Visit [`localhost:4000`](http://localhost:4000) in your browser to preview the theme
-
-### Running tests
-
-The theme contains a minimal test suite, to ensure a site with the theme would build successfully. To run the tests, simply run `script/cibuild`. You'll need to run `script/bootstrap` once before the test script will work.
